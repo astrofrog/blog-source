@@ -1,4 +1,7 @@
 <aside class="sidebar">
+
+  {% include '_includes/about.html' %}
+
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
@@ -9,17 +12,6 @@
       {% endfor %}
     </ul>
   </section>
-  {% if categories %}
-  <section>
-      
-    <h1>Categories</h1>
-    <ul id="recent_posts">
-      {% for category, articles in categories %}
-        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %} 
 
   <section>
   <h1>Tags</h1>
@@ -28,7 +20,22 @@
   {% endfor %}
   </section>
 
-  {% include '_includes/github.html' %}
-  {% include '_includes/social.html' %}
   {% include '_includes/links.html' %}
+
+  <section>
+    <h1>Latest Tweets</h1>
+    <ul id="tweets">
+      <li class="loading">Status updating...</li>
+    </ul>
+    <script type="text/javascript">
+      $.domReady(function(){
+        getTwitterFeed("astrofrog", 4, false);
+      });
+    </script>
+    <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+
+      <a href="http://twitter.com/astrofrog" class="twitter-follow-button" data-show-count="false">Follow @astrofrog</a>
+
+  </section>
+
 </aside>

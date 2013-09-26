@@ -18,10 +18,10 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (('Pelican', 'http://getpelican.com/'),
-          ('Python.org', 'http://python.org/'),
-          ('Jinja2', 'http://jinja.pocoo.org/'),
-          ('You can modify those links in your config file', '#'),)
+LINKS =  (('Professional page at the MPIA', 'http://www.mpia.de/~robitaille'),
+          ('Astropython', 'http://www.astropython.org'),
+          ('AstroBetter', 'http://www.astrobetter.com'),
+          ('Astropy', 'http://www.astropy.org/'),)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
@@ -36,4 +36,4 @@ DEFAULT_PAGINATION = False
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
-THEME = os.path.join(os.path.abspath(__file__), 'pelican-octopress-theme')
+THEME = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'pelican-octopress-theme')
