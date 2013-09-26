@@ -33,3 +33,6 @@ DEFAULT_PAGINATION = False
 # Set URL structure to match octopress
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
+# Disqus comments
+DISQUS_SITENAME = 'pyinthesky'
