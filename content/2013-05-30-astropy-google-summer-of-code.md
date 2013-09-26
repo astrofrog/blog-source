@@ -1,6 +1,6 @@
 Title: Astropy: Google Summer of Code!
 Date: 2013-05-30 23:40
-Category: Python
+Category: Coding
 Tags: Python, Astropy
 Author: Thomas Robitaille
 Slug: astropy-google-summer-of-code
