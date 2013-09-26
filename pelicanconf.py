@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+import os
+
 AUTHOR = 'Thomas Robitaille'
 SITENAME = '.py in the sky'
 SITEURL = ''
@@ -34,5 +36,4 @@ DEFAULT_PAGINATION = False
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
-# Disqus comments
-DISQUS_SITENAME = 'pyinthesky'
+THEME = os.path.join(os.path.abspath(__file__), 'pelican-octopress-theme')
