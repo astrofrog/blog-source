@@ -42,3 +42,6 @@ PLUGIN_PATH = os.path.join(os.environ.get('HOME'), 'Dropbox', 'Sites', 'pelican-
 PLUGINS = ['summary']
 
 SUMMARY_END_MARKER = '<!-- more -->'
+
+# RSS/Atom feeds
+FEED_RSS = 'rss.xml'
