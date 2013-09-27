@@ -5,7 +5,7 @@ Tags: Python, Astropy
 Author: Thomas Robitaille
 Slug: astropy-google-summer-of-code
 
-![astropy logo](images/astropy_logo.png)
+<img class="right" src="{filename}/images/astropy_logo.png" title="astropy" alt="astropy">
 
 As one of the co-ordinators of the [Astropy](http://www.astropy.org) project, I am very happy to announce that two talented students will be joining the Astropy project as part of this year's [Google Summer of Code (GSoC)](http://www.google-melange.com/gsoc/homepage/google/gsoc2013)!
 
