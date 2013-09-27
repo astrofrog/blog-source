@@ -22,20 +22,6 @@
 
   {% include '_includes/links.html' %}
 
-  <section>
-    <h1>Latest Tweets</h1>
-    <ul id="tweets">
-      <li class="loading">Status updating...</li>
-    </ul>
-    <script type="text/javascript">
-      $.domReady(function(){
-        getTwitterFeed("astrofrog", 4, false);
-      });
-    </script>
-    <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-
-      <a href="http://twitter.com/astrofrog" class="twitter-follow-button" data-show-count="false">Follow @astrofrog</a>
-
-  </section>
+  {% include '_includes/twitter.html' %}
 
 </aside>
