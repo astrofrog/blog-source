@@ -15,9 +15,8 @@
 -->
 
 <ul class="main-navigation">
-  {% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}">{{ title }}</a></li>
-  {% endfor %}
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives.html">Archives</a></li>
   {% if DISPLAY_PAGES_ON_MENU %}
     {% for page in PAGES %}
       <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
