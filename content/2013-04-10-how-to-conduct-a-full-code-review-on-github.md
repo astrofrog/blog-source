@@ -78,12 +78,12 @@ This will create, but not switch to, the empty branch. Next push your
 Go to your repository on GitHub and click on the 'Pull Request' button at the
 top right of the window:
 
-![python versions]({filename}/images/code_review/pull_request_1.png)
+![pull request 1]({filename}/images/code_review/pull_request_1.png)
 
 Then set it up so that you are pulling the changes from ``master`` into
 ``empty``, as follows:
 
-![python versions]({filename}/images/code_review/pull_request_2.png)
+![pull request 2]({filename}/images/code_review/pull_request_2.png)
 
 You can now enter a title and message for the pull request, and invite other
 people to comment on the code. If you make changes to ``master``, you can
@@ -166,12 +166,12 @@ the default. Next push your ``review`` and ``empty`` branches to GitHub:
 Go to your repository on GitHub and click on the 'Pull Request' button at the
 top right of the window:
 
-{% img center /images/code_review/pull_request_1.png %}
+![pull request 1]({filename}/images/code_review/pull_request_1.png)
 
 Then set it up so that you are pulling the changes from ``review`` into
 ``empty``, as follows:
 
-{% img center /images/code_review/pull_request_3.png %}
+![pull request 3]({filename}/images/code_review/pull_request_3.png)
 
 You can now enter a title and message for the pull request, and invite other
 people to comment on the code. Make sure that you switch back to your
