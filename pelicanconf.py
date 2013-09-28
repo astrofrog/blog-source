@@ -6,6 +6,7 @@ import os
 
 AUTHOR = 'Thomas Robitaille'
 SITENAME = '.py in the sky'
+SITESUBTITLE = 'Musings on Python, Astronomy, and Open Science'
 SITEURL = ''
 
 TIMEZONE = 'Europe/Paris'
