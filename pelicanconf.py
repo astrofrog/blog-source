@@ -38,7 +38,7 @@ ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
 THEME = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'octopress-theme')
 
-PLUGIN_PATH = os.path.join(os.environ.get('HOME'), 'Dropbox', 'Sites', 'pelican-plugins')
+PLUGIN_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'plugins')
 PLUGINS = ['summary']
 
 SUMMARY_END_MARKER = '<!-- more -->'
