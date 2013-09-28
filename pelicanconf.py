@@ -45,3 +45,8 @@ SUMMARY_END_MARKER = '<!-- more -->'
 
 # RSS/Atom feeds
 FEED_RSS = 'rss.xml'
+
+LOCALE = 'C'
+
+SITEURL = 'http://astrofrog.github.com'
+DISQUS_SITENAME = "pyinthesky"
