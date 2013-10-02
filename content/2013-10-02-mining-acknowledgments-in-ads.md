@@ -37,8 +37,7 @@ The code
 --------
 
 Since not everyone reading this will be interested in the code I used to do
-this, I have placed it in a separate IPython notebook [that you can access
-here](http://nbviewer.ipython.org/urls/raw.github.com/astrofrog/mining_acknowled
+this, I have placed it in a separate IPython notebook [that you can access here](http://nbviewer.ipython.org/urls/raw.github.com/astrofrog/mining_acknowled
 gments/master/Mining%2520acknowledgments%2520in%2520ADS.ipynb). Please feel
 free to fork and contribute to it!
 
@@ -74,7 +73,7 @@ sure the real value should be higher).
 
 Moving on to programming languages:
 
-![programming languages]({filename}/images/mining_ack/programming_languages.png)
+![programming languages]({filename}/images/mining_ack/programming_final.png)
 
 The fractions are even smaller than the online databases above, although in all
 fairness there is no requirement to acknowledge programming languages directly,
@@ -87,7 +86,7 @@ uptake of Python over the last few years is very encouraging!
 
 Finally, let's wrap up with a few common tools:
 
-![tools]({filename}/images/mining_ack/tools.png)
+![tools]({filename}/images/mining_ack/tools_final.png)
 
 Again, the fractions are far too low compared to the real usage, but the trends
 are again very instructive. [IRAF](http://iraf.noao.edu/) and
