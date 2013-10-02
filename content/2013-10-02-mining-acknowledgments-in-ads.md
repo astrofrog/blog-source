@@ -1,9 +1,9 @@
-Title: Mining acknowledgments in ADS
+Title: Are we acknowledging tools and services enough in Astronomy papers?
 Date: 2013-10-02 12:57
 Category: Coding, Publications
 Tags: Python, Data mining
 Author: Thomas Robitaille
-Slug: mining-acknowledgments-in-ads
+Slug: acknowledging-tools-services-in-papers
 
 A couple of weeks ago, I attended the 5th
 [.Astronomy](http://dotastronomy.com/) meeting, which took place in Boston. For
@@ -26,7 +26,7 @@ how often authors actually acknowledge the tools that they use in papers?
 I previously played around with the [NASA/ADS](http://adsabs.harvard.edu/)
 full-text search, but what I wanted was a way to be able to do this
 automatically for any keyword/phrase, and be able to see the evolution of
-acknowledgments over time. With the release of the ADS developer API (which
+acknowledgments over time. With the release of the [ADS developer API](https://github.com/adsabs/adsabs-dev-api) (which
 [Alberto Accomazzi](http://twitter.com/aaccomazzi) presented on the Monday at
 .Astronomy), I finally had the tool I needed to do this! This was a fun
 post-dotastro hack, for which I now present the results below.
