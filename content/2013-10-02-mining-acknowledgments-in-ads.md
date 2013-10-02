@@ -112,7 +112,7 @@ line should be drawn at the point where we think that these acknowledgments
 matter and will make a difference to projects in our community. All of the
 examples above are ones that should be acknowledged, and it is also crucial
 that you think of acknowledging smaller software packages that you use,
-especially if the developers have provided a standard acknowledgment. Yes, your
+especially if the developers have provided a standard phrase. Yes, your
 acknowledgment section may become quite long, but this is not about esthetics -
 it is something that may make a real difference to some of these projects.
 
