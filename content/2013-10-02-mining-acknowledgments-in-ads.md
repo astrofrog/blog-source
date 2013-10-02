@@ -107,7 +107,7 @@ funding may be dependent on the level of use, and for volunteers it may be the
 only way they can get credit for their work.
 
 People may ask where acknowledgments should stop - should also acknowledge
-LaTeX, Apple, our the use of Fourier transforms? Of course not. In my view, the
+LaTeX, Apple, or the use of Fourier transforms? Of course not. In my view, the
 line should be drawn at the point where we think that these acknowledgments
 matter and will make a difference to projects in our community. All of the
 examples above are ones that should be acknowledged, and it is also crucial
