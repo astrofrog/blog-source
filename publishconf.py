@@ -17,4 +17,4 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "pyinthesky"
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-37635519-1"

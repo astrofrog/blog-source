@@ -39,8 +39,10 @@ ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
 THEME = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'octopress-theme')
 
+MARKUP = ('md', 'ipynb')
+
 PLUGIN_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'plugins')
-PLUGINS = ['summary']
+PLUGINS = ['summary', 'ipythonnb']
 
 SUMMARY_END_MARKER = '<!-- more -->'
 
@@ -52,3 +54,4 @@ LOCALE = 'C'
 
 SITEURL = 'http://astrofrog.github.com'
 DISQUS_SITENAME = "pyinthesky"
+GOOGLE_ANALYTICS = "UA-37635519-1"
