@@ -4,7 +4,6 @@ Category: Coding
 Tags: dotastro
 Author: Thomas Robitaille
 Slug: acknowledgment-generator
-status: draft
 
 This week, the 6th installment of the [.Astronomy](http://dotastronomy.com/)
 conference series will be taking place in Chicago. I will unfortunately not be
