@@ -42,7 +42,7 @@ THEME = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'octopress-them
 MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'plugins')
-PLUGINS = ['summary']
+PLUGINS = ['summary', 'render_math']
 
 SUMMARY_END_MARKER = '<!-- more -->'
 
