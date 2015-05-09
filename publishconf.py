@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://astrofrog.github.com'
+SITEURL = ''
 
 DELETE_OUTPUT_DIRECTORY = True
 

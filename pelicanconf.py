@@ -52,6 +52,6 @@ FEED_ATOM = 'atom.xml'
 
 LOCALE = 'C'
 
-SITEURL = 'http://astrofrog.github.com'
+SITEURL = ''
 DISQUS_SITENAME = "pyinthesky"
 GOOGLE_ANALYTICS = "UA-37635519-1"
