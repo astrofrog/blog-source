@@ -11,13 +11,12 @@ to better understand which versions should be supported. The main finding was th
 reasonably up-to-date Python installations, although virtually no-one was
 using Python 3 for daily work.
 
-Two years later, I decided to repeat the experiment, in order to measure
-changes over time, as well as collect a wider variety of information about Python installations and Scientific Python users. In
-January this year I advertised a survey which asked users to provide
-information about their Python installation(s) for research/production work,
-as well as more general information about their Python experience, which
-packages they used regularly, why they are not using Python 3 if they were
-still using Python 2, and so on.
+A little over two years later, I decided to repeat the experiment: in January
+this year I advertised a survey which asked users to provide information
+about their Python installation(s) for research/production work, as well as
+more general information about their Python experience, which packages they
+used regularly, why they are not using Python 3 if they were still using
+Python 2, and so on.
 
 There is a *lot* to be learned from this data, and there is no way that I can
 cover all results in a single blog post, so instead I will focus only on a
