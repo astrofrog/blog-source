@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>.py in the sky</title>
+  <meta name="author" content="Thomas Robitaille">
+
+  <link href="http://astrofrog.github.com/atom.xml" type="application/atom+xml" rel="alternate"
+        title=".py in the sky Atom Feed" />
+  <link href="http://astrofrog.github.com/rss.xml" type="application/rss+xml" rel="alternate"
+        title=".py in the sky RSS Feed" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://astrofrog.github.com/favicon.png" rel="icon">
+  <link href="http://astrofrog.github.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="http://astrofrog.github.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://astrofrog.github.com/theme/js/ender.js"></script>
+  <script src="http://astrofrog.github.com/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head><body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://astrofrog.github.com/">.py in the sky</a></h1>
+    <h2>Musings on Python, Astronomy, and Open Science</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/rss.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:astrofrog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives.html">Archives</a></li>
+    <!-- TODO: add categories here? -->
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">How to conduct a full code review on GitHub</h1>
+      <p class="meta"><time datetime="2013-04-10T13:38:00+02:00" pubdate>Wed 10 April 2013</time></p>
+</header>
+
+  <div class="entry-content"><h2>Why we might want to do it</h2>
+<p>I think it's fair to say I'm addicted to using
+<a href="http://www.github.com">GitHub</a>. I've used it so much in the last couple of
+years that I don't understand/remember how we got any serious collaborative
+coding done before. In particular, the ability to comment on code
+line-by-line, having conversations, updating the pull requests, and merging
+them with a single click is in my mind so much more rewarding and productive
+than having to comment on a patch in an email discussion.</p>
+<p>However, I occasionally want to do a full review of a package that someone
+else has written, and comment on various parts of the code. While it is
+possible to leave line-by-line comments on a commit-by-commit basis, GitHub
+does not provide an official way to review the latest <em>full</em> version of a file
+or package.</p>
+
+
+<p>There are a few ways to conduct a full code review that I can think of:</p>
+<ol>
+<li>
+<p>Browse through the files, on GitHub or locally, and open new issues
+  for anything we would like to comment on, copying and pasting the relevant
+  code. Not ideal if we want to comment on 20-30 chunks of code or more!</p>
+</li>
+<li>
+<p>Browse through the files on GitHub, and if we see a line we want to comment
+  on, we can go to the <em>Blame</em> tab, and then find the last commit that
+  modified that line, and comment on it. The issue with this is that we might
+  want to comment on a chunk of code that was the result of several commits in
+  which case this method breaks down.</p>
+</li>
+<li>
+<p>Leverage the <a href="https://help.github.com/articles/using-pull-requests">pull request</a>
+  interface, with a little git-<em>fu</em>, to conduct a proper full code review.
+  This is in my opinion the best approach, and in this post, I describe one
+  way to do this. There may be more elegant ways, so please let me know if you
+  have any suggestions!</p>
+</li>
+</ol>
+<h2>How to do it</h2>
+<p>Ideally, one could simply create an empty branch on GitHub, then set up a pull
+request from <code>master</code> (or whatever branch you want to review) onto the empty
+branch. However, as far as I can tell, you can't create completely empty
+branches on GitHub - instead, we need our empty branch to have at least one
+commit, which needs to match the first commit of the branch we want to review
+(otherwise GitHub will complain that there is no common history).</p>
+<p>So how we proceed depends on whether the first commit contains code that needs
+to be reviewed, or if it is unimportant (for example, a lot of repositories
+start with the addition of an empty README file).</p>
+<h3>If the first commit is unimportant...</h3>
+<p>... then the situation is fairly easy. You first need to find out the commit
+hash for the first commit in the repository, which you can do with:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git rev-list --all <span class="p">|</span> tail -1
+ec2287e5837386c54fbd082021530aa18c0dcf18
+</pre></div>
+
+
+<p>In the example above the hash is <code>ec2287e5837386c54fbd082021530aa18c0dcf18</code>,
+but this will be different for you. Now, create an empty branch containing
+only that commit:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git branch empty ec2287e5837386c54fbd082021530aa18c0dcf18
+</pre></div>
+
+
+<p>This will create, but not switch to, the empty branch. Next push your
+<code>empty</code> branch to GitHub:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git push origin empty
+</pre></div>
+
+
+<p>Go to your repository on GitHub and click on the 'Pull Request' button at the
+top right of the window:</p>
+<p><img alt="pull request 1" src="http://astrofrog.github.com/images/code_review/pull_request_1.png" /></p>
+<p>Then set it up so that you are pulling the changes from <code>master</code> into
+<code>empty</code>, as follows:</p>
+<p><img alt="pull request 2" src="http://astrofrog.github.com/images/code_review/pull_request_2.png" /></p>
+<p>You can now enter a title and message for the pull request, and invite other
+people to comment on the code. If you make changes to <code>master</code>, you can
+simply push the changes to GitHub as usual:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git push origin master
+</pre></div>
+
+
+<p>which should cause the new commits to appear in the pull request. Once the
+review is complete, you can just close the pull request (without merging), and
+keep the empty branch for future reviews (or delete it).</p>
+<h3>If the first commit is important...</h3>
+<p>... this makes things a little more complicated. The approach we'll take here
+is to create two new branches - <code>review</code>, containing the code to review, and
+<code>empty</code>, containing no files - both of which contain a common and empty
+first commit (which we will add). In this way, the two branches have a common
+history, even though the <code>empty</code> branch has no files. We can set then set up
+a pull request from <code>review</code> to <code>empty</code>.</p>
+<p><strong>Important disclaimer</strong>: make sure that you make a backup of your repository,
+and that there are no unsaved changes! If you follow these instructions, any
+files that are not already in the repository <em>will</em> get deleted, as well as
+any uncommitted changes! In fact, it might be safest to do this in a clean
+clone of your repository, so that if anything goes wrong, you haven't affected
+your usual work repository.</p>
+<p>With that disclaimer in mind, go to the repository you want to do a review
+for, and then create an empty branch that we will call <code>review</code></p>
+<div class="highlight"><pre><span class="nv">$ </span>git checkout --orphan review
+</pre></div>
+
+
+<p>This branch has no history, but the files should still be there and would be
+added to the branch if we were to commit. However, you don't want to do this,
+so remove all the files in the repository in the current branch by first
+unstaging all the files:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git rm -r --cached *
+</pre></div>
+
+
+<p>then removing them all:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git clean -fxd
+</pre></div>
+
+
+<p>Note that any file that was not previously part of the repository will be
+deleted for good, not just from this branch!</p>
+<p>You should now have a nice and empty branch:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git log
+fatal: bad default revision <span class="s1">&#39;HEAD&#39;</span>
+
+<span class="nv">$ </span>git status
+<span class="c"># On branch review</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+nothing to commit <span class="o">(</span>create/copy files and use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</pre></div>
+
+
+<p>You are now ready to set up the review. You should first add a dummy commit
+that contains no files:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git commit --allow-empty -m <span class="s2">&quot;Start of the review&quot;</span>
+</pre></div>
+
+
+<p>Then create a new branch called <code>empty</code> that will contain only this commit:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git branch empty
+</pre></div>
+
+
+<p>This will create a branch with the same empty commit, but will keep on the
+<code>review</code> branch. You can now merge in the changes from the branch we want to
+actually review, say <code>master</code>, into <code>review</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git merge master
+</pre></div>
+
+
+<p>You will be asked to provide a merge commit message, and you can just leave
+the default. Next push your <code>review</code> and <code>empty</code> branches to GitHub:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git push origin review
+<span class="nv">$ </span>git push origin empty
+</pre></div>
+
+
+<p>Go to your repository on GitHub and click on the 'Pull Request' button at the
+top right of the window:</p>
+<p><img alt="pull request 1" src="http://astrofrog.github.com/images/code_review/pull_request_1.png" /></p>
+<p>Then set it up so that you are pulling the changes from <code>review</code> into
+<code>empty</code>, as follows:</p>
+<p><img alt="pull request 3" src="http://astrofrog.github.com/images/code_review/pull_request_3.png" /></p>
+<p>You can now enter a title and message for the pull request, and invite other
+people to comment on the code. Make sure that you switch back to your
+<code>master</code> (or other) branch to implement the changes, and if you then want to
+update the review pull request, you can switch back to <code>review</code> and merge
+the latest changes from <code>master</code>:</p>
+<div class="highlight"><pre><span class="nv">$ </span>git checkout review
+<span class="nv">$ </span>git merge master
+<span class="nv">$ </span>git push origin review
+</pre></div>
+
+
+<p>which should cause the new commits to appear in the pull request.</p>
+<h2>Epilogue</h2>
+<p>As you can see, if the first commit in your repository is unimportant, things
+are actually pretty straightforward. I'd love to hear if anyone has a better
+way to deal with the case where we want to review all commits, including the
+first. Finally, if any GitHub employees are reading this - please make it
+easier for people to conduct full reviews! :)</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Thomas Robitaille</span>
+  </span>
+<time datetime="2013-04-10T13:38:00+02:00" pubdate>Wed 10 April 2013</time>  <span class="categories">
+    <a class="category" href="http://astrofrog.github.com/tag/git.html">Git</a>
+    <a class="category" href="http://astrofrog.github.com/tag/github.html">GitHub</a>
+    <a class="category" href="http://astrofrog.github.com/tag/code-review.html">Code Review</a>
+  </span>
+</p>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+
+<section>
+  <h1>About me</h1>
+  <p>This is my (Thomas Robitaille, a.k.a. astrofrog) personal blog. I am a research group leader at the Max Planck Institute for Astronomy. I am a strong advocate of the Python programming language for Astronomy, and am one of the co-ordinators for the <a href="http://www.astropy.org">Astropy</a> package.</p>
+</section>
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2015/05/09/2015-survey-results/">Python 3 in Science: the great migration has begun!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/">The Acknowledgment Generator</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/10/02/acknowledging-tools-services-in-papers/">Are we acknowledging tools and services enough in Astronomy papers?</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/">Astropy: Google Summer of Code!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/">How to conduct a full code review on GitHub</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+  <h1>Tags</h1>
+  <ul id="tags">
+  <li class="tag">
+    <a href="http://astrofrog.github.com/tag/dotastro.html">dotastro</a>,    <a href="http://astrofrog.github.com/tag/distribution.html">Distribution</a>,    <a href="http://astrofrog.github.com/tag/git.html">Git</a>,    <a href="http://astrofrog.github.com/tag/code-review.html">Code Review</a>,    <a href="http://astrofrog.github.com/tag/github.html">GitHub</a>,    <a href="http://astrofrog.github.com/tag/data-mining.html">Data mining</a>,    <a href="http://astrofrog.github.com/tag/python.html">Python</a>,    <a href="http://astrofrog.github.com/tag/astropy.html">Astropy</a>  </li>
+  </ul>
+  </section>
+
+    <section>
+        <h1>Blogs and Links</h1>
+        <ul>
+            <li><a href="http://www.mpia.de/~robitaille" target="_blank">Professional page at the MPIA</a></li>
+            <li><a href="http://www.astropython.org" target="_blank">Astropython</a></li>
+            <li><a href="http://www.astrobetter.com" target="_blank">AstroBetter</a></li>
+            <li><a href="http://www.astropy.org/" target="_blank">Astropy</a></li>
+        </ul>
+    </section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/astrofrog" data-widget-id="383651531880288257">Tweets by @astrofrog</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Thomas Robitaille -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37635519-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+	<script type="text/javascript">
+	  var disqus_shortname = 'pyinthesky';
+          var disqus_identifier = 'http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/';
+          var disqus_url = 'http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/';
+          var disqus_title = 'How to conduct a full code review on GitHub';
+	  (function() {
+	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	   })();
+	</script>
+</body>
+</html>

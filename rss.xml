@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>.py in the sky</title><link>http://astrofrog.github.com/</link><description>Musings on Python, Astronomy, and Open Science</description><atom:link href="http://astrofrog.github.com/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 09 May 2015 00:00:00 +0200</lastBuildDate><item><title>Python 3 in Science: the great migration has begun!</title><link>http://astrofrog.github.com/blog/2015/05/09/2015-survey-results/</link><description>&lt;p&gt;Back in 2012, &lt;a href="http://astrofrog.github.io/blog/2013/01/13/what-python-installations-are-scientists-using/"&gt;I carried out a survey&lt;/a&gt; to find out which Python, NumPy, and
+SciPy versions scientists are currently using for their daily work, in order
+to better understand which versions should be supported. The main finding was that a large fraction of people have
+reasonably up-to-date Python installations, although virtually no-one was
+using Python 3 for daily work.&lt;/p&gt;
+&lt;p&gt;Two years later, I decided to repeat the experiment, in order to measure
+changes over time, as well as collect a wider variety of information about Python installations and Scientific Python users. In
+January this year I advertised a survey which asked users to provide
+information about their Python installation(s) for research/production work,
+as well as more general information about their Python experience, which
+packages they used regularly, why they are not using Python 3 if they were
+still using Python 2, and so on.&lt;/p&gt;
+&lt;p&gt;There is a &lt;em&gt;lot&lt;/em&gt; to be learned from this data, and there is no way that I can
+cover all results in a single blog post, so instead I will focus only on a
+few points in this post, and will write several more posts over the next
+couple of weeks to highlight various other results.&lt;/p&gt;
+&lt;p&gt;For this post, I thought it would be fun to take a look specifically at what
+Python versions users in the scientific Python community are using, and in
+particular, the state of Python 3 adoption.  I am making an anonymized
+and cleaned-up version of the subset of the data used in this post in &lt;a href="https://github.com/astrofrog/scientific-python-survey-2015"&gt;this&lt;/a&gt; GitHub repository, and will add to the data over time with future blog posts.&lt;/p&gt;
+
+
+&lt;h2&gt;The survey&lt;/h2&gt;
+&lt;p&gt;Before I go ahead, just a few details about the survey. To start with, I
+asked respondents to provide information about their primary Python
+installation for research/production work, gave the option to provide
+information about a second and third installation they use regularly, also
+for research/production work (not for development). The information collected
+about the different Python installations was:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Their operating system&lt;/li&gt;
+&lt;li&gt;The full version numbers for Python, NumPy, SciPy, and Matplotlib&lt;/li&gt;
+&lt;li&gt;Their regularly used installation method/manager (e.g. pip, conda, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition, I asked general questions (not specific to a given Python
+installation), for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What scientific Python packages do they use?&lt;/li&gt;
+&lt;li&gt;How long have they been using Python for?&lt;/li&gt;
+&lt;li&gt;If they are not using Python 3, why not?&lt;/li&gt;
+&lt;li&gt;How did they find out about the survey?&lt;/li&gt;
+&lt;li&gt;Did they take the 2012 survey?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In total, there were 786 responses to the survey, far more than I had
+anticipated, and more than twice the number of respondents in 2012 (313)! The
+results below include 781 responses, because 5 of the responses were partially
+invalid or problematic.&lt;/p&gt;
+&lt;p&gt;Let's now dive in and take a look at some of the results!&lt;/p&gt;
+&lt;h2&gt;Demographics&lt;/h2&gt;
+&lt;p&gt;We can start off by taking a quick look at the demographics of surveyed
+users, and in particular the field of work:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="field" src="http://astrofrog.github.com/images/survey_plots/fields.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;Note that one respondent could select multiple fields, so the percentages add up to more than 100%. In addition, I clearly left out several important branches (such as Computer Science and Mathematics) which explains the 19% of 'Other' respondents. I did my best to advertise the survey beyond Astronomy, but there were some very effective advertising channels for Astronomers (for instance, there is a Facebook group with over 8,000 professional Astronomers, a significant fraction of all Astronomers worldwide!) which explains the bias.&lt;/p&gt;
+&lt;p&gt;Another piece of information we have is how long people have been using Python for:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="field" src="http://astrofrog.github.com/images/survey_plots/experience.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;The bins are not all the same width, but this shows that we have a nice mix, ranging from very experienced to very new users. This information will come in handy in the next section :)&lt;/p&gt;
+&lt;h2&gt;Python versions&lt;/h2&gt;
+&lt;p&gt;Now let's get to the main point of this post which is to look at what fraction of users are using different Python versions for their &lt;em&gt;primary&lt;/em&gt; installation:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="python versions" src="http://astrofrog.github.com/images/survey_plots/python.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;There are a few interesting things to notice here. Firstly, &lt;strong&gt;most users are using either Python 2.7 or 3.4&lt;/strong&gt;, very few users are
+using Python 2.6 and 3.3, and virtually no one uses Python 3.1, and 3.2. This
+has clear implications for which Python versions package developers need to
+support. Based on this, I would argue that only Python 2.7 and 3.4 really
+need to be supported - Python 2.6 as well as 3.1 and 3.2 can essentially be
+dropped (I think that Python 3.3 should still be supported because as a
+fraction of Python 3 users, it's not negligible, and it is a recent
+enough release, but I think that once Python 3.5 is out, we can already consider no longer supporting 3.3)&lt;/p&gt;
+&lt;p&gt;Secondly, over 17% of respondents use Python 3 as their &lt;strong&gt;primary&lt;/strong&gt; Python
+installation. In fact, if we
+look at the exact statistics from the data, we find that 17.4% of users use
+Python 3 as their primary installation, and 2.8% use it as a secondary
+installation, which means that around 20.2% of users are now actively using
+Python 3 on a regular basis.  While this is a little low, remember that in the 2012 survey,
+virtually no one used Python 3 as their primary installation, which is not too surprising because at the time, not all of the core Scientific Python packages were fully functional in Python 3. Now that all core packages support Python 3 fully, it's nice to see that we've gone from essentially 0% to 20% in only a couple of years.&lt;/p&gt;
+&lt;p&gt;Let's now take a quick look at operating systems:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="os" src="http://astrofrog.github.com/images/survey_plots/os.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;The Linux/Mac split is not surprising, but this shows that almost 10% of
+Scientific Python users are on Windows, which is not negligible. Thankfully,
+services like &lt;a href="http://www.appveyor.com/"&gt;AppVeyor&lt;/a&gt; now make it easy to set up
+continuous integration/testing for packages on Windows, so it's becoming
+easier to support this community.&lt;/p&gt;
+&lt;p&gt;Now for an unexpected (at least for me) result relating to operating systems. The
+following plot is normalized by rows (i.e. the sum of each row is 100%) to show, for each operating system, the
+distribution of Python versions:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="python vs os" src="http://astrofrog.github.com/images/survey_plots/os_vs_python.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;Yes, that's right, Windows users are the most up-to-date when it comes to Python
+versions – almost 40% of Windows users are using Python 3! Mac users on the
+other hand are the most conservative, with almost 90% sticking to Python 2.7.
+At this point, I'm not sure what the difference is due to, but I'd be
+interested in hearing your thoughts in the comments! There may be information in the
+full dataset that can help us answer that – in particular, I have a suspicion
+it could be related to installation methods for Python and default Python
+versions available on Linux and MacOS X (whereas Windows users always have to
+install Python themselves).&lt;/p&gt;
+&lt;p&gt;So &lt;strong&gt;why&lt;/strong&gt; do some users not use Python 3? Here's the breakdown of the main
+reasons, for the 80% or so of users whose primary Python version is 2.6 or
+2.7 (note that one user can select several of these answers):&lt;/p&gt;
+&lt;p&gt;&lt;img alt="python3" src="http://astrofrog.github.com/images/survey_plots/why_not_python3.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;Almost two thirds of users who are still using Python 2 do not have any
+motivation to update to Python 3. This is essentially what Jake Vanderplas
+&lt;a href="https://jakevdp.github.io/blog/2013/01/03/will-scientists-ever-move-to-
+python-3/"&gt;wrote about&lt;/a&gt; two years ago – to quote him in that blog post, &lt;em&gt;I'd do it myself
+[switch to Python 3], but I'm too much of a pragmatist: python 2.7 is more
+than sufficient for my own research&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Now I can certainly understand this argument, and I always
+find it difficult to give concrete features in Python 3 that will benefit
+users directly – of course, idealistically, unicode support by default is great because there's no reason that strings should be limited to the ASCII alphabet, but for users that don't need this, it's a harder sell. Personally, I switched to using Python 3 for a very pragmatic reason, which is the following: Python 3 is the future and we are going to have to switch to it sooner or later – &lt;strong&gt;the more we put it off, the harder the transition will be!&lt;/strong&gt; To me, that is a good enough motivation to switch as soon as possible now that the Scientific Python ecosystem supports this.&lt;/p&gt;
+&lt;p&gt;Whether or not you agree with me that this is a good enough reason, at the very least, there really is no reason we shouldn't be &lt;em&gt;teaching&lt;/em&gt;
+Python 3 by default. We can still tell new users about Python 2 in case they
+encounter it, but only as an aside. So let's see whether new users are preferentially using Python 3? (note: the following plot is normalized by
+columns):&lt;/p&gt;
+&lt;p&gt;&lt;img alt="python vs experience" src="http://astrofrog.github.com/images/survey_plots/python_vs_experience.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;Hmm, no.... Actually, 6% of the newest users (&amp;lt;1 year) are using Python 2.6
+(the most compared to other users!) and only 13% are using Python 3, &lt;strong&gt;less&lt;/strong&gt;
+than any other users. I suspect this is because new users just use whatever
+Python versions are available and aren't yet aware of which versions are the
+latest. Furthermore, I suspect most Python courses/workshops still use Python 2. But this is all wrong – we should be teaching new users to use Python 3! New users won't thank you if you teach them Python 2 and they have to migrate all their scripts to Python 3 in a few years... I would strongly encourage any
+of you involved in teaching Python to switch now to using Python 3, &lt;em&gt;even if
+you don't use it yourself&lt;/em&gt; (for my part, I teach a &lt;a href="http://mpia.de/~robitaille/PY4SCI_SS_2015"&gt;Python course&lt;/a&gt; which uses Python 3.4 at the University of Heidelberg, and everything has gone very
+smoothly!)&lt;/p&gt;
+&lt;p&gt;One final suggestion I have is that we start holding Python 3 'migration clinics', where we can help users convert their code to be Python 3-compatible, and help them get set up with Python 3, either as a secondary installation, or a primary one. We can also teach users how to write code that is Python 2 and 3-compatible, using e.g. the &lt;code&gt;__future__&lt;/code&gt; imports, as well as libraries like &lt;a href="https://pypi.python.org/pypi/six"&gt;six&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;What can developers do?&lt;/h2&gt;
+&lt;p&gt;I think that as developers, we can do more to encourage Python 3 adoption. In my view, one of
+the mistakes of the Python 3 transition was that Python
+developers backported many new and very nice features of Python 3 back to
+Python 2, making Python 3 a harder sell. A couple of random examples of backported features include
+&lt;a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict"&gt;ordered dictionaries&lt;/a&gt; and &lt;a href="https://docs.python.org/3.4/tutorial/datastructures.html#dictionaries"&gt;dictionary comprehensions&lt;/a&gt;. However, the Python developers have now stated that &lt;a href="https://www.python.org/dev/peps/pep-0404/"&gt;there will be no Python 2.8 release&lt;/a&gt;. Essentially, no new features are going to be added to Python 2. In fact, after 2020 (which is not &lt;em&gt;so&lt;/em&gt; far in the future), Python 2 will no longer be supported.&lt;/p&gt;
+&lt;p&gt;At some point in the near future, I feel that other package developers should follow this example by having only bugfix releases on Python 2, and releasing new major versions of packages that only support Python 3. To be clear, Python 2 users will still be able to use packages for as long as they like, and no features would be taken away, but in order to get the latest and greatest, they would need to upgrade to Python 3.&lt;/p&gt;
+&lt;h2&gt;Take-away points&lt;/h2&gt;
+&lt;p&gt;We've only scratched the surface of the data from this survey, and already, we can see several interesting things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It's pretty safe to say that developers can now drop support for Python
+  2.6, 3.1, and 3.2. Python 3.4 is far more popular than Python 2.6, and so it's much more important to make sure we support the former than the latter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We should not under-estimate the fraction of Windows users in the
+  Scientific Python community (almost 10%). Supporting these users is now
+  made easier by online continuous integration services running Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Python 3 is catching on, with over 17% of people using it as their primary
+  installation, and over 20% if we include people who use it as a secondary
+  installation, compared to essentially 0% a couple of years ago.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The main reason for Python 2 users to not switch to Python 3 is the lack of
+  motivation/killer features. We need to therefore be more proactive in
+  encouraging people to switch to Python 3, by (a) making sure that any new users are always directed to the latest Python 3 version, and (b) in the near future, we start releasing new major versions of packages for Python 3 only, while maintaining long term bugfix support for Python 2 versions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you have any thoughts on these results so far in the comment section below!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Sat, 09 May 2015 00:00:00 +0200</pubDate><guid>tag:astrofrog.github.com,2015-05-09:blog/2015/05/09/2015-survey-results/</guid><category>Python</category></item><item><title>The Acknowledgment Generator</title><link>http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/</link><description>&lt;p&gt;This week, the 6th installment of the &lt;a href="http://dotastronomy.com/"&gt;.Astronomy&lt;/a&gt;
+conference series will be taking place in Chicago. I will unfortunately not be
+attending this year, but I was nevertheless motivated today to try and finish
+up a hack that started as a result of discussions with
+&lt;a href="https://twitter.com/nialldeacon"&gt;Niall Deacon&lt;/a&gt; before and at
+&lt;a href="http://dotastronomy.com/events/five/"&gt;.Astronomy 5&lt;/a&gt; in Boston!&lt;/p&gt;
+&lt;p&gt;The idea is simple: as I described in a &lt;a href="http://astrofrog.github.io/blog/2013/10/02/acknowledging-tools-services-in-papers/"&gt;blog post&lt;/a&gt;
+last year, we are not doing good job at acknowledging the tools
+that we use for our research, which in turn means that many people who spend
+time developing tools for the community are not getting the credit they deserve.
+(how to give credit to people for non-traditional work in academia is a
+recurring theme of .Astronomy meetings).&lt;/p&gt;
+
+
+&lt;p&gt;Enter the &lt;a href="http://astrofrog.github.io/acknowledgment-generator/"&gt;Acknowledgment Generator&lt;/a&gt;,
+a new tool to make it easier for the laziest of us to generate in just a few
+clicks the list of acknowledgments that should go at the end of a paper or on a
+website! This includes options to show LaTeX-friendly output and BiBTeX
+references. At this point, this is a proof of concept, and only very few
+examples of codes, facilities, or resources are included...&lt;/p&gt;
+&lt;p&gt;... and this is where I need &lt;em&gt;your&lt;/em&gt; help: we can crowd-source the collection of
+the information needed for the database of entries! The website and the
+database of entries are kept in a
+&lt;a href="https://github.com/astrofrog/acknowledgment-generator"&gt;GitHub repository&lt;/a&gt;
+so anyone can go and make changes to the website, and add or modify entries.
+Any contribution helps, and your name will of course be listed as a contributor :)&lt;/p&gt;
+&lt;p&gt;In fact, no &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; expertise is required to help. Take a
+look at the instructions I have written
+&lt;a href="https://github.com/astrofrog/acknowledgment-generator#i-want-to-help"&gt;here&lt;/a&gt;
+which describe how you can add a new entries with just a few clicks, and also
+gives details of how you can send me entries if all else fails.
+If you have ideas of how to make this website better, you can also comment on
+this blog post, or even better, open an issue
+&lt;a href="https://github.com/astrofrog/acknowledgment-generator/issues"&gt;here&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Finally, I would also very much welcome any help in implementing new features
+into the website itself. I am still a javascript newbie, so there are a lot of
+low-hanging fruit if you are interested in helping out! The full list of issues
+is available &lt;a href="https://github.com/astrofrog/acknowledgment-generator/issues"&gt;here&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Sun, 07 Dec 2014 00:00:00 +0100</pubDate><guid>tag:astrofrog.github.com,2014-12-07:blog/2014/12/07/acknowledgment-generator/</guid><category>dotastro</category></item><item><title>Are we acknowledging tools and services enough in Astronomy papers?</title><link>http://astrofrog.github.com/blog/2013/10/02/acknowledging-tools-services-in-papers/</link><description>&lt;p&gt;A couple of weeks ago, I attended the 5th
+&lt;a href="http://dotastronomy.com/"&gt;.Astronomy&lt;/a&gt; meeting, which took place in Boston. For
+anyone not familiar with this series of conferences, the aim is to bring
+together researchers, developers, and educators/outreach specialists who 
+use or are interested in using the web as a tool for their work (I like to
+think of it as an astro-hipster conference!).&lt;/p&gt;
+&lt;p&gt;One of the topics that comes up regularly at .Astronomy meetings is the
+question of credit: how do we, as scientists, get credit for work that is not
+considered 'traditional', such as (but not limited to) creating or contributing
+to open source software, outreach activities, or refereeing?
+&lt;a href="http://twitter.com/sarahkendrew"&gt;Sarah Kendrew&lt;/a&gt; already summarized the
+discussions on this topic in &lt;a href="http://sarahaskew.net/2013/10/01/astronomy-5-share-the-love/"&gt;her blog&lt;/a&gt;, so I won't
+repeat them here. However, given that I contribute to a number of open source
+projects (such as &lt;a href="http://www.astropy.org"&gt;Astropy&lt;/a&gt;,
+&lt;a href="http://aplpy.github.io"&gt;APLpy&lt;/a&gt;, and many others) this got me wondering 
+how often authors actually acknowledge the tools that they use in papers?&lt;/p&gt;
+&lt;p&gt;I previously played around with the &lt;a href="http://adsabs.harvard.edu/"&gt;NASA/ADS&lt;/a&gt;
+full-text search, but what I wanted was a way to be able to do this
+automatically for any keyword/phrase, and be able to see the evolution of
+acknowledgments over time. With the release of the &lt;a href="https://github.com/adsabs/adsabs-dev-api"&gt;ADS developer API&lt;/a&gt; (which
+&lt;a href="http://twitter.com/aaccomazzi"&gt;Alberto Accomazzi&lt;/a&gt; presented on the Monday at
+.Astronomy), I finally had the tool I needed to do this! This was a fun
+post-dotastro hack, for which I now present the results below.&lt;/p&gt;
+
+
+&lt;h2&gt;The code&lt;/h2&gt;
+&lt;p&gt;Since not everyone reading this will be interested in the code I used to do
+this, I have placed it in a separate IPython notebook &lt;a href="http://nbviewer.ipython.org/urls/raw.github.com/astrofrog/mining_acknowled
+gments/master/Mining%2520acknowledgments%2520in%2520ADS.ipynb"&gt;that you can access here&lt;/a&gt;. Please feel
+free to fork and contribute to it!&lt;/p&gt;
+&lt;h2&gt;The results&lt;/h2&gt;
+&lt;p&gt;Let's start off by looking at how often &lt;a href="http://adsabs.harvard.edu/"&gt;ADS&lt;/a&gt;
+itself is acknowledged. The suggested acknowledgment phrase includes
+&lt;em&gt;Astrophysics Data System&lt;/em&gt;, so we will search for that:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ADS" src="http://astrofrog.github.com/images/mining_ack/ads_final.png" /&gt;&lt;/p&gt;
+&lt;p&gt;This shows that more and more people are acknowledging ADS, but that even now
+this represents less than 1% of all papers! Of course, many people, myself
+included (until now), use ADS without thinking about acknowledging it, but this
+illustrates to what extend we are under-acknowledging what we use to do our
+research and write papers.&lt;/p&gt;
+&lt;p&gt;Let's move on to common online databases, such as
+&lt;a href="http://simbad.u-strasbg.fr/simbad/"&gt;Simbad&lt;/a&gt;,
+&lt;a href="http://vizier.u-strasbg.fr/viz-bin/VizieR"&gt;Vizier&lt;/a&gt;, and
+&lt;a href="http://ned.ipac.caltech.edu"&gt;NED&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="online databases" src="http://astrofrog.github.com/images/mining_ack/databases_final.png" /&gt;&lt;/p&gt;
+&lt;p&gt;I want you to take a look at the y scale. At most &lt;strong&gt;0.17%&lt;/strong&gt; of refereed papers
+currently acknowledge using SIMBAD. Now I know there are quite a few theorists
+out there, but this is a little on the low side... As was the case for ADS,
+it's encouraging to see that the fraction is increasing over time, but if we
+extrapolate the increase since the year 2000, it will take another &lt;strong&gt;two
+thousand years&lt;/strong&gt; before 10% of papers acknowledge the use of SIMBAD (and I'm
+sure the real value should be higher).&lt;/p&gt;
+&lt;p&gt;Moving on to programming languages:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="programming languages" src="http://astrofrog.github.com/images/mining_ack/programming_final.png" /&gt;&lt;/p&gt;
+&lt;p&gt;The fractions are even smaller than the online databases above, although in all
+fairness there is no requirement to acknowledge programming languages directly,
+so I will not complain about this. What is interesting though are the trends.
+IDL and Fortran both see a large drop in fraction of acknowledgments this year,
+while mentions of Python have seen a sharp increase from almost none around
+2005 to more than any of the other languages shown here. While this is a poor
+metric of which languages people are actually using, it does show that the
+uptake of Python over the last few years is very encouraging!&lt;/p&gt;
+&lt;p&gt;Finally, let's wrap up with a few common tools:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="tools" src="http://astrofrog.github.com/images/mining_ack/tools_final.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Again, the fractions are far too low compared to the real usage, but the trends
+are again very instructive. &lt;a href="http://iraf.noao.edu/"&gt;IRAF&lt;/a&gt; and
+&lt;a href="http://starlink.jach.hawaii.edu/starlink"&gt;Starlink&lt;/a&gt; are now past their peak,
+ while
+&lt;a href="http://hea-www.harvard.edu/RD/ds9/site/Home.html"&gt;Ds9&lt;/a&gt;,
+&lt;a href="http://aladin.u-strasbg.fr/"&gt;Aladin&lt;/a&gt;, and
+&lt;a href="http://www.star.bris.ac.uk/~mbt/topcat/"&gt;Topcat&lt;/a&gt; are all on the rise!&lt;/p&gt;
+&lt;h2&gt;Take-home message&lt;/h2&gt;
+&lt;p&gt;Most of the services and tools I have shown results for above actually have
+standard phrases that you can add to the acknowledgment section of your
+latest paper, but it's clear that most papers are not following these
+guidelines. This is a severe problem because for some of these projects,
+funding may be dependent on the level of use, and for volunteers it may be the
+only way they can get credit for their work.&lt;/p&gt;
+&lt;p&gt;People may ask where acknowledgments should stop - should also acknowledge
+LaTeX, Apple, or the use of Fourier transforms? Of course not. In my view, the
+line should be drawn at the point where we think that these acknowledgments
+matter and will make a difference to projects in our community. All of the
+examples above are ones that should be acknowledged, and it is also crucial
+that you think of acknowledging smaller software packages that you use,
+especially if the developers have provided a standard phrase. Yes, your
+acknowledgment section may become quite long, but this is not about esthetics -
+it is something that may make a real difference to some of these projects.&lt;/p&gt;
+&lt;p&gt;Of course, you don't want to spend hours searching around for all the possible
+acknowledgments on the web, but fear not! AstroBetter now hosts an &lt;a href="http://www.astrobetter.com/wiki/tiki-index.php?page=Acknowledgements"&gt;acknowledgment wiki&lt;/a&gt; on
+which you will find many acknowledgments - this list is far from exhaustive, so
+please add to it any acknowledgment you are aware of!&lt;/p&gt;
+&lt;p&gt;In the mean time, what do you think about the low fractions of acknowledgments?
+How can we encourage more people in our community to fairly acknowledge the
+tools and services we use?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Wed, 02 Oct 2013 12:57:00 +0200</pubDate><guid>tag:astrofrog.github.com,2013-10-02:blog/2013/10/02/acknowledging-tools-services-in-papers/</guid><category>Python</category><category>Data mining</category></item><item><title>Astropy: Google Summer of Code!</title><link>http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/</link><description>&lt;p&gt;&lt;img class="right" src="http://astrofrog.github.com/images/astropy_logo.png" title="astropy" alt="astropy"&gt;&lt;/p&gt;
+&lt;p&gt;As one of the co-ordinators of the &lt;a href="http://www.astropy.org"&gt;Astropy&lt;/a&gt; project, I am very happy to announce that two talented students will be joining the Astropy project as part of this year's &lt;a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013"&gt;Google Summer of Code (GSoC)&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;For anyone not familiar with GSoC, it is a great program that allows students around the world to spend the summer contributing to an open source project (the students receive a stipend from Google for their work). Astropy is participating in GSoC as a sub-organization in the &lt;a href="http://www.python.org/psf/"&gt;Python Software Foundation&lt;/a&gt; organization.&lt;/p&gt;
+
+
+&lt;p&gt;The two students that will be working with us this summer are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Madhura Parikh, who will be working on the Astroquery affiliated package. Astroquery aims to provide a Python interface to many web services such as IRSA, SIMBAD, VizieR, and many others. Madhura will be refactoring Astroquery to unify the API, with the aim of a first stable release at the end of the summer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Axel Donath, who will be working on significantly extending the capabilities of the Photutils affiliated package. Photutils aims to provide Python tools to perform aperture and PSF photometry, and the long-term goal is to integrate it into the core Astropy package. Axel will focus on developing the source detection and PSF-fitting functionality which are currently missing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Competition for GSoC was tough this year, and there were a number of excellent applications to work with Astropy, so I want to thank all the students who applied to work with us!&lt;/p&gt;
+&lt;p&gt;The official GSoC mentors for Astropy are Tom Aldcroft, Adam Ginsburg, Wolfgang Kerzendorf, Adrian Price-Whelan, Erik Tollerud, and myself. Throughout the summer, Madhura and Axel will be communicating with the Astropy development team through the astropy-dev list, so if you are interested in either of the projects mentioned above, please feel free to get involved in the discussions! Madhura and Axel will be also be blogging about their experience in GSoC (&lt;a href="http://ping-vyom.blogspot.in/"&gt;Madhura's&lt;/a&gt; and &lt;a href="http://adonath.github.io/"&gt;Axel's&lt;/a&gt; blog).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Thu, 30 May 2013 23:40:00 +0200</pubDate><guid>tag:astrofrog.github.com,2013-05-30:blog/2013/05/30/astropy-google-summer-of-code/</guid><category>Python</category><category>Astropy</category></item><item><title>How to conduct a full code review on GitHub</title><link>http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/</link><description>&lt;h2&gt;Why we might want to do it&lt;/h2&gt;
+&lt;p&gt;I think it's fair to say I'm addicted to using
+&lt;a href="http://www.github.com"&gt;GitHub&lt;/a&gt;. I've used it so much in the last couple of
+years that I don't understand/remember how we got any serious collaborative
+coding done before. In particular, the ability to comment on code
+line-by-line, having conversations, updating the pull requests, and merging
+them with a single click is in my mind so much more rewarding and productive
+than having to comment on a patch in an email discussion.&lt;/p&gt;
+&lt;p&gt;However, I occasionally want to do a full review of a package that someone
+else has written, and comment on various parts of the code. While it is
+possible to leave line-by-line comments on a commit-by-commit basis, GitHub
+does not provide an official way to review the latest &lt;em&gt;full&lt;/em&gt; version of a file
+or package.&lt;/p&gt;
+
+
+&lt;p&gt;There are a few ways to conduct a full code review that I can think of:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Browse through the files, on GitHub or locally, and open new issues
+  for anything we would like to comment on, copying and pasting the relevant
+  code. Not ideal if we want to comment on 20-30 chunks of code or more!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Browse through the files on GitHub, and if we see a line we want to comment
+  on, we can go to the &lt;em&gt;Blame&lt;/em&gt; tab, and then find the last commit that
+  modified that line, and comment on it. The issue with this is that we might
+  want to comment on a chunk of code that was the result of several commits in
+  which case this method breaks down.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Leverage the &lt;a href="https://help.github.com/articles/using-pull-requests"&gt;pull request&lt;/a&gt;
+  interface, with a little git-&lt;em&gt;fu&lt;/em&gt;, to conduct a proper full code review.
+  This is in my opinion the best approach, and in this post, I describe one
+  way to do this. There may be more elegant ways, so please let me know if you
+  have any suggestions!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;How to do it&lt;/h2&gt;
+&lt;p&gt;Ideally, one could simply create an empty branch on GitHub, then set up a pull
+request from &lt;code&gt;master&lt;/code&gt; (or whatever branch you want to review) onto the empty
+branch. However, as far as I can tell, you can't create completely empty
+branches on GitHub - instead, we need our empty branch to have at least one
+commit, which needs to match the first commit of the branch we want to review
+(otherwise GitHub will complain that there is no common history).&lt;/p&gt;
+&lt;p&gt;So how we proceed depends on whether the first commit contains code that needs
+to be reviewed, or if it is unimportant (for example, a lot of repositories
+start with the addition of an empty README file).&lt;/p&gt;
+&lt;h3&gt;If the first commit is unimportant...&lt;/h3&gt;
+&lt;p&gt;... then the situation is fairly easy. You first need to find out the commit
+hash for the first commit in the repository, which you can do with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git rev-list --all &lt;span class="p"&gt;|&lt;/span&gt; tail -1
+ec2287e5837386c54fbd082021530aa18c0dcf18
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the example above the hash is &lt;code&gt;ec2287e5837386c54fbd082021530aa18c0dcf18&lt;/code&gt;,
+but this will be different for you. Now, create an empty branch containing
+only that commit:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch empty ec2287e5837386c54fbd082021530aa18c0dcf18
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will create, but not switch to, the empty branch. Next push your
+&lt;code&gt;empty&lt;/code&gt; branch to GitHub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin empty
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Go to your repository on GitHub and click on the 'Pull Request' button at the
+top right of the window:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pull request 1" src="http://astrofrog.github.com/images/code_review/pull_request_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Then set it up so that you are pulling the changes from &lt;code&gt;master&lt;/code&gt; into
+&lt;code&gt;empty&lt;/code&gt;, as follows:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pull request 2" src="http://astrofrog.github.com/images/code_review/pull_request_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;You can now enter a title and message for the pull request, and invite other
+people to comment on the code. If you make changes to &lt;code&gt;master&lt;/code&gt;, you can
+simply push the changes to GitHub as usual:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;which should cause the new commits to appear in the pull request. Once the
+review is complete, you can just close the pull request (without merging), and
+keep the empty branch for future reviews (or delete it).&lt;/p&gt;
+&lt;h3&gt;If the first commit is important...&lt;/h3&gt;
+&lt;p&gt;... this makes things a little more complicated. The approach we'll take here
+is to create two new branches - &lt;code&gt;review&lt;/code&gt;, containing the code to review, and
+&lt;code&gt;empty&lt;/code&gt;, containing no files - both of which contain a common and empty
+first commit (which we will add). In this way, the two branches have a common
+history, even though the &lt;code&gt;empty&lt;/code&gt; branch has no files. We can set then set up
+a pull request from &lt;code&gt;review&lt;/code&gt; to &lt;code&gt;empty&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important disclaimer&lt;/strong&gt;: make sure that you make a backup of your repository,
+and that there are no unsaved changes! If you follow these instructions, any
+files that are not already in the repository &lt;em&gt;will&lt;/em&gt; get deleted, as well as
+any uncommitted changes! In fact, it might be safest to do this in a clean
+clone of your repository, so that if anything goes wrong, you haven't affected
+your usual work repository.&lt;/p&gt;
+&lt;p&gt;With that disclaimer in mind, go to the repository you want to do a review
+for, and then create an empty branch that we will call &lt;code&gt;review&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout --orphan review
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This branch has no history, but the files should still be there and would be
+added to the branch if we were to commit. However, you don't want to do this,
+so remove all the files in the repository in the current branch by first
+unstaging all the files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git rm -r --cached *
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;then removing them all:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clean -fxd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that any file that was not previously part of the repository will be
+deleted for good, not just from this branch!&lt;/p&gt;
+&lt;p&gt;You should now have a nice and empty branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git log
+fatal: bad default revision &lt;span class="s1"&gt;&amp;#39;HEAD&amp;#39;&lt;/span&gt;
+
+&lt;span class="nv"&gt;$ &lt;/span&gt;git status
+&lt;span class="c"&gt;# On branch review&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Initial commit&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+nothing to commit &lt;span class="o"&gt;(&lt;/span&gt;create/copy files and use &lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt; to track&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You are now ready to set up the review. You should first add a dummy commit
+that contains no files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git commit --allow-empty -m &lt;span class="s2"&gt;&amp;quot;Start of the review&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then create a new branch called &lt;code&gt;empty&lt;/code&gt; that will contain only this commit:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch empty
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will create a branch with the same empty commit, but will keep on the
+&lt;code&gt;review&lt;/code&gt; branch. You can now merge in the changes from the branch we want to
+actually review, say &lt;code&gt;master&lt;/code&gt;, into &lt;code&gt;review&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git merge master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will be asked to provide a merge commit message, and you can just leave
+the default. Next push your &lt;code&gt;review&lt;/code&gt; and &lt;code&gt;empty&lt;/code&gt; branches to GitHub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin review
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin empty
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Go to your repository on GitHub and click on the 'Pull Request' button at the
+top right of the window:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pull request 1" src="http://astrofrog.github.com/images/code_review/pull_request_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Then set it up so that you are pulling the changes from &lt;code&gt;review&lt;/code&gt; into
+&lt;code&gt;empty&lt;/code&gt;, as follows:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pull request 3" src="http://astrofrog.github.com/images/code_review/pull_request_3.png" /&gt;&lt;/p&gt;
+&lt;p&gt;You can now enter a title and message for the pull request, and invite other
+people to comment on the code. Make sure that you switch back to your
+&lt;code&gt;master&lt;/code&gt; (or other) branch to implement the changes, and if you then want to
+update the review pull request, you can switch back to &lt;code&gt;review&lt;/code&gt; and merge
+the latest changes from &lt;code&gt;master&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout review
+&lt;span class="nv"&gt;$ &lt;/span&gt;git merge master
+&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin review
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;which should cause the new commits to appear in the pull request.&lt;/p&gt;
+&lt;h2&gt;Epilogue&lt;/h2&gt;
+&lt;p&gt;As you can see, if the first commit in your repository is unimportant, things
+are actually pretty straightforward. I'd love to hear if anyone has a better
+way to deal with the case where we want to review all commits, including the
+first. Finally, if any GitHub employees are reading this - please make it
+easier for people to conduct full reviews! :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Wed, 10 Apr 2013 13:38:00 +0200</pubDate><guid>tag:astrofrog.github.com,2013-04-10:blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/</guid><category>Git</category><category>GitHub</category><category>Code Review</category></item><item><title>What Python installations are scientists using?</title><link>http://astrofrog.github.com/blog/2013/01/13/what-python-installations-are-scientists-using/</link><description>&lt;p&gt;Back in November 2012, I
+&lt;a href="https://twitter.com/astrofrog/status/269743084215103488"&gt;asked&lt;/a&gt; Python
+users in Science to fill out a survey to find out what &lt;a href="http://www.python.org"&gt;Python&lt;/a&gt;, &lt;a href="http://www.numpy.org"&gt;Numpy&lt;/a&gt;, and
+&lt;a href="http://www.scipy.org"&gt;Scipy&lt;/a&gt; versions they were using, and how they maintain their installation. My motivation for this was to collect quantitative
+information to inform discussions amongst developers regarding which versions
+to support, because those discussions are usually based only on guessing and
+personal experience. In particular, there has been some discussion in the
+&lt;a href="http://www.astropy.org"&gt;Astropy&lt;/a&gt; project regarding whether we should drop
+support for Numpy 1.4, but we had no quantitative information about whether
+this would affect many users (which motivated this study).&lt;/p&gt;
+&lt;p&gt;In this post, I'll give an overview of the results, as well as access to the
+(anonymized) raw data. First, I should mention that given my area of research
+and networks, the only community I obtained significant data are Astronomers,
+so the results I present here only include these (though I also provide the
+raw data for the remaining users for anyone interested).&lt;/p&gt;
+
+
+&lt;p&gt;Before I show the results, I just want to make it clear that I am not claiming
+that the results are a true sampling of Python user levels. I advertised the
+poll via Twitter, a couple of Python mailing lists, and the Facebook group for
+Astronomers. The survey was announced on different days on Twitter and
+Facebook, so there may be some useful information about the typical Python
+installations of Twitter vs Facebook users buried in the data that I won't
+cover here. If anyone is interested about when the announcements were made, to
+correlate with response peaks in the data, please let me know!&lt;/p&gt;
+&lt;p&gt;With that out of the way... let's look at the results!&lt;/p&gt;
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;First, some general stats - there were 313 responses in total, of which 244
+were related to Astronomy (where I use the term in the broadest sense,
+including solar physics, planetary science, astrophysics, and cosmology). The
+responses were recorded between November 17th 2012 and December 2nd 2012 (at
+which point the rate of responses had gone down to less than one a day).&lt;/p&gt;
+&lt;h2&gt;Python Versions&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="python versions" src="http://astrofrog.github.com/images/python_versions.png" /&gt;&lt;/p&gt;
+&lt;p&gt;As shown above, an overwhelming 80% of Astronomers use Python 2.7, and almost
+15% use Python 2.6. Almost no-one uses Python 3.x for production work yet,
+which is not surprising, given that at the time of the poll there were not
+stable versions for all the crucial packages in a scientific Python stack (in
+particular, Matplotlib only released their first Python 3.x compatible release
+in December). It will be interesting to see how this fraction changes over the
+next year (more on that in future blog posts).&lt;/p&gt;
+&lt;h2&gt;Numpy Versions&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="python versions" src="http://astrofrog.github.com/images/numpy_versions.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In the above plot, &lt;em&gt;dev&lt;/em&gt; includes anything that is a developer version more
+recent than the 1.6.2 release (which was the latest stable release at the time
+of the poll). The distribution is again significantly peaked, with almost 80%
+of respondents using Numpy 1.6.x. There is more of a spread in the remaining
+versions compared with the Python versions, but the vast majority of people
+are using Numpy 1.5.x or more recent.&lt;/p&gt;
+&lt;h2&gt;Scipy Versions&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="python versions" src="http://astrofrog.github.com/images/scipy_versions.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In the above plot, &lt;em&gt;dev&lt;/em&gt; includes anything that is a developer version more
+recent than the stable 0.11 release (which was the latest stable release at
+the time of the poll). Unlike the Python and Numpy versions, which are almost
+exclusively dominated by two versions, the Scipy versions show a larger
+spread, with the most popular version, 0.10.x, representing less than 45% of
+users.&lt;/p&gt;
+&lt;p&gt;I originally thought that Scipy released more often than Numpy, and this would
+explain the difference, but it seems that both projects have been releasing at
+a reasonably similar rate (see
+&lt;a href="http://sourceforge.net/projects/numpy/files/NumPy/"&gt;here&lt;/a&gt; and
+&lt;a href="http://sourceforge.net/projects/scipy/files/scipy/"&gt;here&lt;/a&gt;). Therefore, this
+might be to do with package managers, or simply to the fact that Numpy is used
+more often than Scipy, and users are therefore more likely to run into bugs
+and update to the latest stable version? I have to admit that I would not even
+be able to tell without checking what Scipy version I am using, whereas I know
+I'm using Numpy 1.6.2 for production work.&lt;/p&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;We now get to some very interesting statistics - how users install Python and
+dependencies. While Python is awesome in many respects, installation is
+probably the biggest hurdle that users have to jump to get started.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="python versions" src="http://astrofrog.github.com/images/install_methods.png" /&gt;&lt;/p&gt;
+&lt;p&gt;I'm not sure if anyone's quantitatively looked at this before, but this was
+the first time that I really got a sense for all the different ways that one
+can maintain a Python installation, and which methods are the most popular. The options shown above are described below:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Linux Manager&lt;/em&gt; means linux package managers (&lt;code&gt;apt-get&lt;/code&gt;, &lt;code&gt;yum&lt;/code&gt;, etc.)
+&lt;em&gt;Source&lt;/em&gt; means an installation from the source code. This means either
+downloading the source code and running &lt;code&gt;python setup.py install&lt;/code&gt;, or using
+&lt;code&gt;pip install&lt;/code&gt; or &lt;code&gt;easy_install&lt;/code&gt;.
+&lt;em&gt;EPD&lt;/em&gt; stands for the
+  &lt;a href="http://www.enthought.com/products/epd.php"&gt;Enthought Python Distribution&lt;/a&gt;,
+which is a scientific Python bundle that includes e.g. Numpy, Scipy,
+Matplotlib, and many other packages. It is free for users at academic
+institutions.
+&lt;a href="http://www.macports.org"&gt;&lt;em&gt;MacPorts&lt;/em&gt;&lt;/a&gt; is one of the most widely used package
+managers on Mac, and I have provided instructions for getting set up with
+Python and MacPorts &lt;a href="http://astrofrog.github.com/macports-python/"&gt;here&lt;/a&gt;.
+&lt;em&gt;Official Installers&lt;/em&gt; refers to the MacOS X disk images, Linux RPMs, and
+Windows installers that are provided by some projects (including Python
+itself, Numpy, and Scipy).
+&lt;em&gt;Admins&lt;/em&gt; means that Python and the packages were installed by System Administrators.
+&lt;a href="http://www.eso.org/sci/software/scisoft/"&gt;&lt;em&gt;SciSoft&lt;/em&gt;&lt;/a&gt; and &lt;a href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python/current/stsci-python-download"&gt;&lt;em&gt;STScI Python&lt;/em&gt;&lt;/a&gt; are two Astronomy-specific software bundles.
+And &lt;a href="http://www.activestate.com/activepython"&gt;&lt;em&gt;ActivePython&lt;/em&gt;&lt;/a&gt; is similar to
+EPD, but where binary packages are downloaded on-the-fly as needed.&lt;/p&gt;
+&lt;p&gt;Of course, some of these are not orthogonal, because for example
+&lt;code&gt;easy_install&lt;/code&gt; can be used to install additional packages not in EPD. But
+the responses from the survey refer to how the main packages (Python, Numpy,
+and Scipy) were installed.&lt;/p&gt;
+&lt;p&gt;What can we take away from the results?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If we combine the Linux Package Managers and MacPorts (one of the Mac
+  Package Managers) into a more general &lt;em&gt;Package Managers&lt;/em&gt; category, this
+  amounts to around 40% of users, the single largest group.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Only a small fraction of people use the official binary installers, with
+  many more people installing from source. This was surprising to me, given
+  how quick/easy it is to install Python, Numpy, Scipy, and Matplotlib using
+  the official installers. I think this is down to the fact that this is not a
+  well-documented installation procedure, and is platform dependent.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Astronomy-specific bundles (SciSoft and STScI Python) are not as widely
+  used, which indicates that more effort should be put in getting packages in
+  existing package managers than building new software bundles.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A small fraction (around 7%) have no idea how they installed Python and
+  other packages, so they may run into issues when they try and upgrade in
+  future. If you install Python for someone, please explain to them what you
+  are doing and how they can update packages in future!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I personally feel that we should encourage users to install Python and
+whatever dependencies are available from package managers. Of course, in some
+cases users don't have root access, but this generally means that they have
+sysadmins, so in those cases, the best option is still for the sysadmins to
+install the main Python packages via package managers.&lt;/p&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;To me, one of the most interesting results is that a large number of people
+have a reasonably up-to-date installation, with Python 2.7 and Numpy 1.6.x,
+and I imagine that the Python 2.7 peak is here to stay, given that the
+transition to Python 3 will be slow.&lt;/p&gt;
+&lt;p&gt;For developers, supporting only Python 2.6 and above seems like a sensible
+choice at this stage (a decision we made within Astropy), and given the
+imminent release of Numpy 1.7.0, I think that developers can start thinking
+about dropping support for Numpy 1.4 in the near future. For Scipy, things are
+a little more difficult, given the broad spread of versions, so developers
+should ensure that they know what versions they are implicitly supporting, and
+to check what version users have installed.&lt;/p&gt;
+&lt;p&gt;In terms of installation method, I think it's very important to ensure that
+packages are included in package managers. Even if it is easy to install
+packages via &lt;code&gt;pip&lt;/code&gt; or &lt;code&gt;easy_install&lt;/code&gt; in some cases, putting packages in
+package managers ensures that users will more likely stay up-to-date with the
+most recent versions.&lt;/p&gt;
+&lt;p&gt;There is more information still contained in the data than I covered here (for
+example, some of the above points can be correlated - do the people who do not
+know how they installed Python correlate with the older versions?). For anyone
+who is interested in looking at the data, I've placed the files and the
+scripts I used to make the above plots in a GitHub repository
+&lt;a href="https://github.com/astrofrog/python-versions-survey"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any thoughts about the results, or find anything interesting in
+the raw data, please leave a comment!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Thomas Robitaille</dc:creator><pubDate>Sun, 13 Jan 2013 10:10:00 +0100</pubDate><guid>tag:astrofrog.github.com,2013-01-13:blog/2013/01/13/what-python-installations-are-scientists-using/</guid><category>Python</category><category>Distribution</category></item></channel></rss>

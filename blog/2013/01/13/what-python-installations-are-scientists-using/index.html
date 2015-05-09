@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>.py in the sky</title>
+  <meta name="author" content="Thomas Robitaille">
+
+  <link href="http://astrofrog.github.com/atom.xml" type="application/atom+xml" rel="alternate"
+        title=".py in the sky Atom Feed" />
+  <link href="http://astrofrog.github.com/rss.xml" type="application/rss+xml" rel="alternate"
+        title=".py in the sky RSS Feed" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://astrofrog.github.com/favicon.png" rel="icon">
+  <link href="http://astrofrog.github.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="http://astrofrog.github.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://astrofrog.github.com/theme/js/ender.js"></script>
+  <script src="http://astrofrog.github.com/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head><body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://astrofrog.github.com/">.py in the sky</a></h1>
+    <h2>Musings on Python, Astronomy, and Open Science</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/rss.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:astrofrog.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives.html">Archives</a></li>
+    <!-- TODO: add categories here? -->
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">What Python installations are scientists using?</h1>
+      <p class="meta"><time datetime="2013-01-13T10:10:00+01:00" pubdate>Sun 13 January 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>Back in November 2012, I
+<a href="https://twitter.com/astrofrog/status/269743084215103488">asked</a> Python
+users in Science to fill out a survey to find out what <a href="http://www.python.org">Python</a>, <a href="http://www.numpy.org">Numpy</a>, and
+<a href="http://www.scipy.org">Scipy</a> versions they were using, and how they maintain their installation. My motivation for this was to collect quantitative
+information to inform discussions amongst developers regarding which versions
+to support, because those discussions are usually based only on guessing and
+personal experience. In particular, there has been some discussion in the
+<a href="http://www.astropy.org">Astropy</a> project regarding whether we should drop
+support for Numpy 1.4, but we had no quantitative information about whether
+this would affect many users (which motivated this study).</p>
+<p>In this post, I'll give an overview of the results, as well as access to the
+(anonymized) raw data. First, I should mention that given my area of research
+and networks, the only community I obtained significant data are Astronomers,
+so the results I present here only include these (though I also provide the
+raw data for the remaining users for anyone interested).</p>
+
+
+<p>Before I show the results, I just want to make it clear that I am not claiming
+that the results are a true sampling of Python user levels. I advertised the
+poll via Twitter, a couple of Python mailing lists, and the Facebook group for
+Astronomers. The survey was announced on different days on Twitter and
+Facebook, so there may be some useful information about the typical Python
+installations of Twitter vs Facebook users buried in the data that I won't
+cover here. If anyone is interested about when the announcements were made, to
+correlate with response peaks in the data, please let me know!</p>
+<p>With that out of the way... let's look at the results!</p>
+<h2>Overview</h2>
+<p>First, some general stats - there were 313 responses in total, of which 244
+were related to Astronomy (where I use the term in the broadest sense,
+including solar physics, planetary science, astrophysics, and cosmology). The
+responses were recorded between November 17th 2012 and December 2nd 2012 (at
+which point the rate of responses had gone down to less than one a day).</p>
+<h2>Python Versions</h2>
+<p><img alt="python versions" src="http://astrofrog.github.com/images/python_versions.png" /></p>
+<p>As shown above, an overwhelming 80% of Astronomers use Python 2.7, and almost
+15% use Python 2.6. Almost no-one uses Python 3.x for production work yet,
+which is not surprising, given that at the time of the poll there were not
+stable versions for all the crucial packages in a scientific Python stack (in
+particular, Matplotlib only released their first Python 3.x compatible release
+in December). It will be interesting to see how this fraction changes over the
+next year (more on that in future blog posts).</p>
+<h2>Numpy Versions</h2>
+<p><img alt="python versions" src="http://astrofrog.github.com/images/numpy_versions.png" /></p>
+<p>In the above plot, <em>dev</em> includes anything that is a developer version more
+recent than the 1.6.2 release (which was the latest stable release at the time
+of the poll). The distribution is again significantly peaked, with almost 80%
+of respondents using Numpy 1.6.x. There is more of a spread in the remaining
+versions compared with the Python versions, but the vast majority of people
+are using Numpy 1.5.x or more recent.</p>
+<h2>Scipy Versions</h2>
+<p><img alt="python versions" src="http://astrofrog.github.com/images/scipy_versions.png" /></p>
+<p>In the above plot, <em>dev</em> includes anything that is a developer version more
+recent than the stable 0.11 release (which was the latest stable release at
+the time of the poll). Unlike the Python and Numpy versions, which are almost
+exclusively dominated by two versions, the Scipy versions show a larger
+spread, with the most popular version, 0.10.x, representing less than 45% of
+users.</p>
+<p>I originally thought that Scipy released more often than Numpy, and this would
+explain the difference, but it seems that both projects have been releasing at
+a reasonably similar rate (see
+<a href="http://sourceforge.net/projects/numpy/files/NumPy/">here</a> and
+<a href="http://sourceforge.net/projects/scipy/files/scipy/">here</a>). Therefore, this
+might be to do with package managers, or simply to the fact that Numpy is used
+more often than Scipy, and users are therefore more likely to run into bugs
+and update to the latest stable version? I have to admit that I would not even
+be able to tell without checking what Scipy version I am using, whereas I know
+I'm using Numpy 1.6.2 for production work.</p>
+<h2>Installation</h2>
+<p>We now get to some very interesting statistics - how users install Python and
+dependencies. While Python is awesome in many respects, installation is
+probably the biggest hurdle that users have to jump to get started.</p>
+<p><img alt="python versions" src="http://astrofrog.github.com/images/install_methods.png" /></p>
+<p>I'm not sure if anyone's quantitatively looked at this before, but this was
+the first time that I really got a sense for all the different ways that one
+can maintain a Python installation, and which methods are the most popular. The options shown above are described below:</p>
+<p><em>Linux Manager</em> means linux package managers (<code>apt-get</code>, <code>yum</code>, etc.)
+<em>Source</em> means an installation from the source code. This means either
+downloading the source code and running <code>python setup.py install</code>, or using
+<code>pip install</code> or <code>easy_install</code>.
+<em>EPD</em> stands for the
+  <a href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a>,
+which is a scientific Python bundle that includes e.g. Numpy, Scipy,
+Matplotlib, and many other packages. It is free for users at academic
+institutions.
+<a href="http://www.macports.org"><em>MacPorts</em></a> is one of the most widely used package
+managers on Mac, and I have provided instructions for getting set up with
+Python and MacPorts <a href="http://astrofrog.github.com/macports-python/">here</a>.
+<em>Official Installers</em> refers to the MacOS X disk images, Linux RPMs, and
+Windows installers that are provided by some projects (including Python
+itself, Numpy, and Scipy).
+<em>Admins</em> means that Python and the packages were installed by System Administrators.
+<a href="http://www.eso.org/sci/software/scisoft/"><em>SciSoft</em></a> and <a href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python/current/stsci-python-download"><em>STScI Python</em></a> are two Astronomy-specific software bundles.
+And <a href="http://www.activestate.com/activepython"><em>ActivePython</em></a> is similar to
+EPD, but where binary packages are downloaded on-the-fly as needed.</p>
+<p>Of course, some of these are not orthogonal, because for example
+<code>easy_install</code> can be used to install additional packages not in EPD. But
+the responses from the survey refer to how the main packages (Python, Numpy,
+and Scipy) were installed.</p>
+<p>What can we take away from the results?</p>
+<ul>
+<li>
+<p>If we combine the Linux Package Managers and MacPorts (one of the Mac
+  Package Managers) into a more general <em>Package Managers</em> category, this
+  amounts to around 40% of users, the single largest group.</p>
+</li>
+<li>
+<p>Only a small fraction of people use the official binary installers, with
+  many more people installing from source. This was surprising to me, given
+  how quick/easy it is to install Python, Numpy, Scipy, and Matplotlib using
+  the official installers. I think this is down to the fact that this is not a
+  well-documented installation procedure, and is platform dependent.</p>
+</li>
+<li>
+<p>Astronomy-specific bundles (SciSoft and STScI Python) are not as widely
+  used, which indicates that more effort should be put in getting packages in
+  existing package managers than building new software bundles.</p>
+</li>
+<li>
+<p>A small fraction (around 7%) have no idea how they installed Python and
+  other packages, so they may run into issues when they try and upgrade in
+  future. If you install Python for someone, please explain to them what you
+  are doing and how they can update packages in future!</p>
+</li>
+</ul>
+<p>I personally feel that we should encourage users to install Python and
+whatever dependencies are available from package managers. Of course, in some
+cases users don't have root access, but this generally means that they have
+sysadmins, so in those cases, the best option is still for the sysadmins to
+install the main Python packages via package managers.</p>
+<h2>Summary</h2>
+<p>To me, one of the most interesting results is that a large number of people
+have a reasonably up-to-date installation, with Python 2.7 and Numpy 1.6.x,
+and I imagine that the Python 2.7 peak is here to stay, given that the
+transition to Python 3 will be slow.</p>
+<p>For developers, supporting only Python 2.6 and above seems like a sensible
+choice at this stage (a decision we made within Astropy), and given the
+imminent release of Numpy 1.7.0, I think that developers can start thinking
+about dropping support for Numpy 1.4 in the near future. For Scipy, things are
+a little more difficult, given the broad spread of versions, so developers
+should ensure that they know what versions they are implicitly supporting, and
+to check what version users have installed.</p>
+<p>In terms of installation method, I think it's very important to ensure that
+packages are included in package managers. Even if it is easy to install
+packages via <code>pip</code> or <code>easy_install</code> in some cases, putting packages in
+package managers ensures that users will more likely stay up-to-date with the
+most recent versions.</p>
+<p>There is more information still contained in the data than I covered here (for
+example, some of the above points can be correlated - do the people who do not
+know how they installed Python correlate with the older versions?). For anyone
+who is interested in looking at the data, I've placed the files and the
+scripts I used to make the above plots in a GitHub repository
+<a href="https://github.com/astrofrog/python-versions-survey">here</a>.</p>
+<p>If you have any thoughts about the results, or find anything interesting in
+the raw data, please leave a comment!</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Thomas Robitaille</span>
+  </span>
+<time datetime="2013-01-13T10:10:00+01:00" pubdate>Sun 13 January 2013</time>  <span class="categories">
+    <a class="category" href="http://astrofrog.github.com/tag/python.html">Python</a>
+    <a class="category" href="http://astrofrog.github.com/tag/distribution.html">Distribution</a>
+  </span>
+</p>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+
+<section>
+  <h1>About me</h1>
+  <p>This is my (Thomas Robitaille, a.k.a. astrofrog) personal blog. I am a research group leader at the Max Planck Institute for Astronomy. I am a strong advocate of the Python programming language for Astronomy, and am one of the co-ordinators for the <a href="http://www.astropy.org">Astropy</a> package.</p>
+</section>
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2015/05/09/2015-survey-results/">Python 3 in Science: the great migration has begun!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/">The Acknowledgment Generator</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/10/02/acknowledging-tools-services-in-papers/">Are we acknowledging tools and services enough in Astronomy papers?</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/">Astropy: Google Summer of Code!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/">How to conduct a full code review on GitHub</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+  <h1>Tags</h1>
+  <ul id="tags">
+  <li class="tag">
+    <a href="http://astrofrog.github.com/tag/dotastro.html">dotastro</a>,    <a href="http://astrofrog.github.com/tag/distribution.html">Distribution</a>,    <a href="http://astrofrog.github.com/tag/git.html">Git</a>,    <a href="http://astrofrog.github.com/tag/code-review.html">Code Review</a>,    <a href="http://astrofrog.github.com/tag/github.html">GitHub</a>,    <a href="http://astrofrog.github.com/tag/data-mining.html">Data mining</a>,    <a href="http://astrofrog.github.com/tag/python.html">Python</a>,    <a href="http://astrofrog.github.com/tag/astropy.html">Astropy</a>  </li>
+  </ul>
+  </section>
+
+    <section>
+        <h1>Blogs and Links</h1>
+        <ul>
+            <li><a href="http://www.mpia.de/~robitaille" target="_blank">Professional page at the MPIA</a></li>
+            <li><a href="http://www.astropython.org" target="_blank">Astropython</a></li>
+            <li><a href="http://www.astrobetter.com" target="_blank">AstroBetter</a></li>
+            <li><a href="http://www.astropy.org/" target="_blank">Astropy</a></li>
+        </ul>
+    </section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/astrofrog" data-widget-id="383651531880288257">Tweets by @astrofrog</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Thomas Robitaille -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37635519-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+	<script type="text/javascript">
+	  var disqus_shortname = 'pyinthesky';
+          var disqus_identifier = 'http://astrofrog.github.com/blog/2013/01/13/what-python-installations-are-scientists-using/';
+          var disqus_url = 'http://astrofrog.github.com/blog/2013/01/13/what-python-installations-are-scientists-using/';
+          var disqus_title = 'What Python installations are scientists using?';
+	  (function() {
+	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	   })();
+	</script>
+</body>
+</html>

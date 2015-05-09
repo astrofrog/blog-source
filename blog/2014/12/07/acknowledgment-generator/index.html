@@ -51,27 +51,67 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/">Astropy: Google Summer of Code!</a>
-      </h1>
-      <p class="meta"><time datetime="2013-05-30T23:40:00+02:00" pubdate>Thu 30 May 2013</time></p>
+      <h1 class="entry-title">The Acknowledgment Generator</h1>
+      <p class="meta"><time datetime="2014-12-07T00:00:00+01:00" pubdate>Sun 07 December 2014</time></p>
 </header>
 
-  <div class="entry-content"><p><img class="right" src="http://astrofrog.github.com/images/astropy_logo.png" title="astropy" alt="astropy"></p>
-<p>As one of the co-ordinators of the <a href="http://www.astropy.org">Astropy</a> project, I am very happy to announce that two talented students will be joining the Astropy project as part of this year's <a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013">Google Summer of Code (GSoC)</a>!</p>
-<p>For anyone not familiar with GSoC, it is a great program that allows students around the world to spend the summer contributing to an open source project (the students receive a stipend from Google for their work). Astropy is participating in GSoC as a sub-organization in the <a href="http://www.python.org/psf/">Python Software Foundation</a> organization.</p>
-</div>
-  <footer>
-    <a rel="full-article" href="http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+  <div class="entry-content"><p>This week, the 6th installment of the <a href="http://dotastronomy.com/">.Astronomy</a>
+conference series will be taking place in Chicago. I will unfortunately not be
+attending this year, but I was nevertheless motivated today to try and finish
+up a hack that started as a result of discussions with
+<a href="https://twitter.com/nialldeacon">Niall Deacon</a> before and at
+<a href="http://dotastronomy.com/events/five/">.Astronomy 5</a> in Boston!</p>
+<p>The idea is simple: as I described in a <a href="http://astrofrog.github.io/blog/2013/10/02/acknowledging-tools-services-in-papers/">blog post</a>
+last year, we are not doing good job at acknowledging the tools
+that we use for our research, which in turn means that many people who spend
+time developing tools for the community are not getting the credit they deserve.
+(how to give credit to people for non-traditional work in academia is a
+recurring theme of .Astronomy meetings).</p>
 
-  <br />
-</div></div>
+
+<p>Enter the <a href="http://astrofrog.github.io/acknowledgment-generator/">Acknowledgment Generator</a>,
+a new tool to make it easier for the laziest of us to generate in just a few
+clicks the list of acknowledgments that should go at the end of a paper or on a
+website! This includes options to show LaTeX-friendly output and BiBTeX
+references. At this point, this is a proof of concept, and only very few
+examples of codes, facilities, or resources are included...</p>
+<p>... and this is where I need <em>your</em> help: we can crowd-source the collection of
+the information needed for the database of entries! The website and the
+database of entries are kept in a
+<a href="https://github.com/astrofrog/acknowledgment-generator">GitHub repository</a>
+so anyone can go and make changes to the website, and add or modify entries.
+Any contribution helps, and your name will of course be listed as a contributor :)</p>
+<p>In fact, no <a href="http://git-scm.com/">git</a> expertise is required to help. Take a
+look at the instructions I have written
+<a href="https://github.com/astrofrog/acknowledgment-generator#i-want-to-help">here</a>
+which describe how you can add a new entries with just a few clicks, and also
+gives details of how you can send me entries if all else fails.
+If you have ideas of how to make this website better, you can also comment on
+this blog post, or even better, open an issue
+<a href="https://github.com/astrofrog/acknowledgment-generator/issues">here</a>!</p>
+<p>Finally, I would also very much welcome any help in implementing new features
+into the website itself. I am still a javascript newbie, so there are a lot of
+low-hanging fruit if you are interested in helping out! The full list of issues
+is available <a href="https://github.com/astrofrog/acknowledgment-generator/issues">here</a>.</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Thomas Robitaille</span>
+  </span>
+<time datetime="2014-12-07T00:00:00+01:00" pubdate>Sun 07 December 2014</time>  <span class="categories">
+    <a class="category" href="http://astrofrog.github.com/tag/dotastro.html">dotastro</a>
+  </span>
+</p>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
 
 <section>
@@ -82,7 +122,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://astrofrog.github.com/blog/2015/05/09/2015-survey-results/">Python 3 in Science: the great migration has begun!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/">The Acknowledgment Generator</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/10/02/acknowledging-tools-services-in-papers/">Are we acknowledging tools and services enough in Astronomy papers?</a>
+      </li>
+      <li class="post">
           <a href="http://astrofrog.github.com/blog/2013/05/30/astropy-google-summer-of-code/">Astropy: Google Summer of Code!</a>
+      </li>
+      <li class="post">
+          <a href="http://astrofrog.github.com/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/">How to conduct a full code review on GitHub</a>
       </li>
     </ul>
   </section>
@@ -128,6 +180,9 @@
     </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'pyinthesky';
+          var disqus_identifier = 'http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/';
+          var disqus_url = 'http://astrofrog.github.com/blog/2014/12/07/acknowledgment-generator/';
+          var disqus_title = 'The Acknowledgment Generator';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
