@@ -192,7 +192,7 @@ We've only scratched the surface of the data from this survey, and already, we c
 
 * The main reason for Python 2 users to not switch to Python 3 is the lack of
   motivation/killer features. We need to therefore be more proactive in
-  encouraging people to switch to Python 3 (a) by making sure that any new users are always directed to the latest Python 3 version, and (b) by releasing, in the near future, new major versions of packages for Python 3 only, while maintaining long term bugfix support for Python 2 versions.
+  encouraging people to switch to Python 3 by (a) making sure that any new users are always directed to the latest Python 3 version, and (b) releasing, in the near future, new major versions of packages for Python 3 only, while maintaining long term bugfix support for Python 2 versions.
 
 Let me know if you have any thoughts on these results so far in the comment section below, and stay tuned for future blog posts with more results!
 
