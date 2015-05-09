@@ -158,7 +158,7 @@ than any other users. I suspect this is because new users just use whatever
 Python versions are available and aren't yet aware of which versions are the
 latest. Furthermore, I suspect most Python courses/workshops still use Python 2. But this is all wrong – we should be teaching new users to use Python 3! New users won't thank you if you teach them Python 2 and they have to migrate all their scripts to Python 3 in a few years... I would strongly encourage any
 of you involved in teaching Python to switch now to using Python 3, *even if
-you don't use it yourself* (for my part, I teach a [Python course](http://mpia.de/~robitaille/PY4SCI_SS_2015) which uses Python 3.4 at the University of Heidelberg, and everything has gone very
+you don't use it yourself* (I teach a [Python course](http://mpia.de/~robitaille/PY4SCI_SS_2015) which uses Python 3.4 at the University of Heidelberg, and everything has gone very
 smoothly!)
 
 One final suggestion I have is that we start holding Python 3 'migration clinics', where we can help users convert their code to be Python 3-compatible, and help them get set up with Python 3, either as a secondary installation, or a primary one. We can also teach users how to write code that is Python 2 and 3-compatible, using e.g. the ``__future__`` imports, as well as libraries like [six](https://pypi.python.org/pypi/six).
