@@ -11,8 +11,8 @@ to better understand which versions should be supported. The main finding was th
 reasonably up-to-date Python installations, although virtually no-one was
 using Python 3 for daily work.
 
-A little over two years later, I decided to repeat the experiment: in January
-this year I advertised a survey which asked users to provide information
+This year, I decided to repeat the experiment: last January
+I advertised a survey which asked users to provide information
 about their Python installation(s) for research/production work, as well as
 more general information about their Python experience, which packages they
 used regularly, why they are not using Python 3 if they were still using
