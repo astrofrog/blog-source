@@ -62,7 +62,7 @@ Python versions
 
 Let's start off by taking a look at what fraction of users are using different Python versions and see where that takes us:
 
-![python versions]({filename}/images/survey_plots/python.png)
+![python versions]({filename}/images/survey_plots/python.svg)
 
 There are a few interesting things to notice here. Firstly, **most users are using either Python 2.7 or 3.4**, very few users are
 using Python 2.6 and 3.3, and virtually no one uses Python 3.1, and 3.2. This
@@ -83,7 +83,7 @@ virtually no one used Python 3 as their primary installation, which is not too s
 
 Let's now take a quick look at operating systems:
 
-![os]({filename}/images/survey_plots/os.png)
+![os]({filename}/images/survey_plots/os.svg)
 
 This is not really unexpected, though it does show that almost 10% of
 Scientific Python users are on Windows, which is not negligeable. Thankfully,
@@ -96,7 +96,7 @@ following plot is normalized by rows to show, for each operating system, the
 distribution of Python versions:
 
 
-![python vs os]({filename}/images/survey_plots/os_vs_python.png)
+![python vs os]({filename}/images/survey_plots/os_vs_python.svg)
 
 Yep, that's right, Windows users are the most up-to-date when it comes to Python
 versions - almost 40% of Windows users are using Python 3! Mac users on the
@@ -113,7 +113,7 @@ reasons, for users whose primary Python version is 2.6 or 2.7 (note that one
 user can select several of these answers):
 
 
-![python3]({filename}/images/survey_plots/why_not_python3.png)
+![python3]({filename}/images/survey_plots/why_not_python3.svg)
 
 Almost half of users who are still using Python 2 do not have any motivation
 to update to Python 3. Now I can certainly understand this argument, and I always
@@ -143,7 +143,7 @@ benefit of switching to Python 3!
 This is only part of the solution however. Now that the Scientific Python ecosystem for Python 3, there really is no reason we
 shouldn't be *teaching* Python 3 by default. We can still tell them about Python 2 in case they encounter it, but only as an aside. Is that the case? Are new users being taught Python 3?
 
-![python vs experience]({filename}/images/survey_plots/python_vs_experience.png)
+![python vs experience]({filename}/images/survey_plots/python_vs_experience.svg)
 
 Um, no.... Actually, 6% of the newest users (<1 year) are using Python 2.6
 (the most compared to other users!) and only 13% are using Python 3, **less**
