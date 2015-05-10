@@ -67,13 +67,23 @@ Demographics
 We can start off by taking a quick look at the demographics of surveyed
 users, and in particular the field of work:
 
-![field]({filename}/images/survey_plots/fields.svg)
+![field](/images/survey_plots/fields.svg)
 
-Note that one respondent could select multiple fields, so the percentages add up to more than 100%. In addition, I clearly left out several important branches (such as Computer Science and Mathematics) which explains the 19% of 'Other' respondents. I did my best to advertise the survey beyond Astronomy, but there were some very effective advertising channels for Astronomers (for instance, there is a Facebook group with over 8,000 professional Astronomers, a significant fraction of all Astronomers worldwide!) which explains the bias.
+Note that one respondent could select multiple fields, so the percentages add
+up to more than 100%. In addition, I left out several important branches
+(such as Biology/Bioinformatics, Computer Science, Mathematics) from the
+original survey, but parsed these from the answers provided in the 'Other'
+field. I did my best to advertise the survey beyond Astronomy, but there were
+some very effective advertising channels for Astronomers (for instance, there
+is a Facebook group with over 8,000 professional Astronomers, a significant
+fraction of all Astronomers worldwide!) which explains the huge bias towards
+Astronomy/Astrophysics. If your field is under-represented here, please leave
+a comment below to let me know where I can advertise a similar survey next
+time for maximum impact!
 
 Another piece of information we have is how long people have been using Python for:
 
-![field]({filename}/images/survey_plots/experience.svg)
+![field](/images/survey_plots/experience.svg)
 
 The bins are not all the same width, but this shows that we have a nice mix, ranging from very experienced to very new users. This information will come in handy in the next section :)
 
@@ -82,16 +92,13 @@ Python versions
 
 Now let's get to the main point of this post which is to look at what fraction of users are using different Python versions for their *primary* installation:
 
-![python versions]({filename}/images/survey_plots/python.svg)
+![python versions](/images/survey_plots/python.svg)
 
 There are a few interesting things to notice here. Firstly, **most users are using either Python 2.7 or 3.4**, very few users are
 using Python 2.6 and 3.3, and virtually no one uses Python 3.1, and 3.2. This
 has clear implications for which Python versions package developers need to
-support. Based on this, I would argue that only Python 2.7 and 3.4 really
-need to be supported - Python 2.6 as well as 3.1 and 3.2 can essentially be
-dropped (I think that Python 3.3 should still be supported because as a
-fraction of Python 3 users, it's not negligible, and it is a recent
-enough release, but I think that once Python 3.5 is out, we can already consider no longer supporting 3.3)
+support. Based on this, I would argue that the main versions that need to be supported are Python 2.7 and 3.4, as well as 3.3 (since it is not a negligible fraction of Python 3 users). **Support for Python 2.6 as well as
+3.1 and 3.2 can essentially be dropped.**
 
 Secondly, over 17% of respondents use Python 3 as their **primary** Python
 installation. In fact, if we
@@ -103,7 +110,7 @@ virtually no one used Python 3 as their primary installation, which is not too s
 
 Let's now take a quick look at operating systems:
 
-![os]({filename}/images/survey_plots/os.svg)
+![os](/images/survey_plots/os.svg)
 
 The Linux/Mac split is not surprising, but this shows that almost 10% of
 Scientific Python users are on Windows, which is not negligible. Thankfully,
@@ -116,7 +123,7 @@ following plot is normalized by rows (i.e. the sum of each row is 100%) to show,
 distribution of Python versions:
 
 
-![python vs os]({filename}/images/survey_plots/os_vs_python.svg)
+![python vs os](/images/survey_plots/os_vs_python.svg)
 
 Yes, that's right, Windows users are the most up-to-date when it comes to Python
 versions – almost 40% of Windows users are using Python 3! Mac users on the
@@ -132,7 +139,7 @@ So **why** do some users not use Python 3? Here's the breakdown of the main
 reasons, for the 80% or so of users whose primary Python version is 2.6 or
 2.7 (note that one user can select several of these answers):
 
-![python3]({filename}/images/survey_plots/why_not_python3.svg)
+![python3](/images/survey_plots/why_not_python3.svg)
 
 Almost two thirds of users who are still using Python 2 do not have any
 motivation to update to Python 3. This is essentially what Jake Vanderplas
@@ -143,14 +150,22 @@ than sufficient for my own research*.
 
 Now I can certainly understand this argument, and I always
 find it difficult to give concrete features in Python 3 that will benefit
-users directly – of course, idealistically, unicode support by default is great because there's no reason that strings should be limited to the ASCII alphabet, but for users that don't need this, it's a harder sell. Personally, I switched to using Python 3 for a very pragmatic reason, which is the following: Python 3 is the future and we are going to have to switch to it sooner or later – **the more we put it off, the harder the transition will be!** To me, that is a good enough motivation to switch as soon as possible now that the Scientific Python ecosystem supports this.
+users directly – of course, idealistically, unicode support by default is
+great because there's no reason that strings should be limited to the ASCII
+alphabet, but for users that don't need this, it's a harder sell. There are
+other features that exist in Python 3 and not Python 2, but personally, I
+switched to using Python 3 for a very pragmatic reason, which is the
+following: Python 3 is the future and we are going to have to switch to it
+sooner or later – **the more we put it off, the harder the transition will
+be!** To me, that is a good enough motivation to switch as soon as possible
+now that the Scientific Python ecosystem supports this.
 
 Whether or not you agree with me that this is a good enough reason, at the very least, there really is no reason we shouldn't be *teaching*
 Python 3 by default. We can still tell new users about Python 2 in case they
 encounter it, but only as an aside. So let's see whether new users are preferentially using Python 3? (note: the following plot is normalized by
 columns):
 
-![python vs experience]({filename}/images/survey_plots/python_vs_experience.svg)
+![python vs experience](/images/survey_plots/python_vs_experience.svg)
 
 Hmm, no.... Actually, 6% of the newest users (<1 year) are using Python 2.6
 (the most compared to other users!) and only 13% are using Python 3, **less**
@@ -190,9 +205,32 @@ We've only scratched the surface of the data from this survey, and already, we c
   installation, and over 20% if we include people who use it as a secondary
   installation, compared to essentially 0% a couple of years ago.
 
-* The main reason for Python 2 users to not switch to Python 3 is the lack of
-  motivation/killer features. We need to therefore be more proactive in
-  encouraging people to switch to Python 3 by (a) making sure that any new users are always directed to the latest Python 3 version, and (b) releasing, in the near future, new major versions of packages for Python 3 only, while maintaining long term bugfix support for Python 2 versions.
+* The main reason for Python 2 users to not switch to Python 3 is the
+  lack of motivation/killer features. We need to therefore be more
+  proactive in encouraging people to switch to Python 3 by (a) better
+  advertising new features in Python 3 not available in Python 2, (b) making
+  sure that any new users are always directed to the latest Python 3 version,
+  and (c) releasing, in the near future, new major versions of packages for
+  Python 3 only, while maintaining long term bugfix support for Python 2
+  versions.
 
-Let me know if you have any thoughts on these results so far in the comment section below, and stay tuned for future blog posts with more results!
+Let me know if you have any thoughts on these results so far in the comment
+section below, and stay tuned for future blog posts with more results!
 
+**Update 1 (9 May 2015 at 19:15 UT):** I have now include more fields of
+research based on answers supplied in the 'Other' field. I have also reworded
+my recommendation for dropping support for Python versions to make it clear
+that I don't think we should drop support for 3.3.
+
+**Update 2 (9 May 2015 at 11:30 UT):** Updated the last bullet in the
+take-away points to clarify that we should also make sure we better advertise
+Python 3-only features. For instance Python 3.5 will have a matrix
+multiplication operator which will be very useful especially for Scientific
+Python users. Also, updated the paragraph starting *Now I can certainly
+understand this argument* to mention that of course there are other new
+features besides default unicode in Python 3.
+
+**Update 3 (10 May 2015 at 8:30 UT):** If you are interested in discussing
+the results in this post, there are discussion threads on
+[Hacker News](https://news.ycombinator.com/item?id=9517392) and
+[Reddit](http://www.reddit.com/r/Python/comments/35ec96/python_3_in_science_the_great_migration_has_begun/) in addition to the comments section below!
