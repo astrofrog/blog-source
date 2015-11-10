@@ -16,7 +16,7 @@ and create tools that could be used by others and are applicable beyond my
 specific research area. In the last few years, I have also been incredibly
 lucky to have been involved as one of the co-ordinators and lead developers
 of the [Astropy](http://www.astropy.org) project. My goal is now to transform
-my passion for open scientific software and open science into a full-time
+my passion for scientific software and open science into a full-time
 job, rather than fitting it in between all the usual responsibilities of a
 traditional academic job.
 
